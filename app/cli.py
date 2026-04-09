@@ -11,10 +11,16 @@ def main():
 @click.argument("url")
 @click.option("--headers", default=None, help="Request headers in JSON format")
 @click.option("--body", default=None, help="Request body in JSON format")
-def send(method: str, url: str, headers: str, body:str):
+@click.option(
+    "--output", "-o", "-out",
+    type=click.Choice(["full", "status", "body", "time"], case_sensitive=False),
+    default="full",
+    help="Select output format"
+)
+def send(method: str, url: str, headers: str, body:str, output: str):
     """
     Send HTTP request
     Example: reqpy send GET https://www.google.com
     """
-    get_sort_answer(method, url, headers, body)
+    get_sort_answer(method, url, headers, body, output)
 

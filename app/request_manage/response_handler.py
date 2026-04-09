@@ -2,7 +2,7 @@ import json
 
 
 # Check answer types and compose the primary structure
-def parse_response(response):
+def parse_response(response) -> dict:
     content_type = response.headers.get("Content-Type", "")
 
     if "application/json" in content_type:
@@ -31,7 +31,9 @@ def parse_headers(headers):
 
     try:
         return json.loads(headers)
+
     except json.JSONDecodeError:
+
         key, value = headers.split(":", 1)
         return {key.strip(): value.strip()}
 
@@ -43,6 +45,7 @@ def parse_body(body):
     try:
         json_body = json.loads(body)
         return json_body, None
+
     except json.JSONDecodeError:
 
         return None, body

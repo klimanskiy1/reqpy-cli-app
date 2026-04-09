@@ -4,17 +4,17 @@ from app.utils.formatter import format_answer
 
 
 # Calls two functions and get result
-def get_sort_answer(method: str, url: str, headers: str = None, body: str = None) -> None:
+def get_sort_answer(method: str, url: str, headers: str = None, body: str = None, output: str = "full") -> None:
 
     parsed_headers = parse_headers(headers)
 
-    parsed_body = parse_body
+    parsed_body = parse_body(body)
 
     response = send_request(method, url, parsed_headers=parsed_headers, parsed_body=parse_body)
 
     parsed_answer = parse_response(response)
 
-    format_answer(parsed_answer)
+    format_answer(parsed_answer, output)
 
 
 
