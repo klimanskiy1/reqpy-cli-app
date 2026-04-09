@@ -1,0 +1,2 @@
+[console_scripts]
+reqpy = app.cli:main

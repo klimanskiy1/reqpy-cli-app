@@ -38,7 +38,7 @@ def format_answer(parsed_answer: dict, output="full") -> None:
         click.echo("-" * 40)
 
         for key, value in parsed_answer["headers"].items():
-            click.echo(f"{click.style(key, fg="blue")}: {value}")
+            click.echo(f"{key}: {value}")
 
         # Body
 
