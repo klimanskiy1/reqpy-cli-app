@@ -9,8 +9,8 @@ def main():
 @main.command()
 @click.argument("method")
 @click.argument("url")
-@click.option("--headers", default=None, help="Request headers in JSON format")
-@click.option("--body", default=None, help="Request body in JSON format")
+@click.option("--headers","-h","-H", default=None, help="Request headers in JSON format")
+@click.option("--body","-b","-B", default=None, help="Request body in JSON format")
 @click.option(
     "--output", "-o", "-out",
     type=click.Choice(["full", "status", "body", "time"], case_sensitive=False),

@@ -49,3 +49,12 @@ def parse_body(body):
     except json.JSONDecodeError:
 
         return None, body
+
+def http_check(url: str) -> str:
+
+    if url[0:4] == "http":
+        return url
+
+    else:
+        # If possible -> http will automatically become https
+        return "http://" + url
